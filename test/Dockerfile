@@ -10,3 +10,4 @@ RUN if [ $(grep 'VERSION_ID="8"' /etc/os-release) ] ; then \
     apt-get update && apt-get -y install phantomjs \
 ; fi
 RUN apt-get -y install lsb-release
+# blah
