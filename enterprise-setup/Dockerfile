@@ -26,4 +26,7 @@ RUN git clone https://github.com/sstephenson/bats.git && \
 RUN perl -MCPAN -e "install TAP::Parser" && \
 		perl -MCPAN -e "install XML::Generator"
 
+# install tap-to-junit
+RUN git clone https://github.com/jmason/tap-to-junit-xml.git
+
 USER circleci
