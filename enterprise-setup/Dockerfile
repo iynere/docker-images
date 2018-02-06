@@ -15,4 +15,15 @@ RUN wget https://s3.amazonaws.com/aws-cli/awscli-bundle.zip && \
 	./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws && \
 	rm -r awscli-bundle
 
+# install bats for testing
+RUN git clone https://github.com/sstephenson/bats.git \
+  && cd bats \
+  && ./install.sh /usr/local \
+  && cd .. \
+  && rm -rf bats
+
+# install dependencies for tap-to-junit
+RUN perl -MCPAN -e "install TAP::Parser"
+RUN perl -MCPAN -e "install XML::Generator"
+
 USER circleci
